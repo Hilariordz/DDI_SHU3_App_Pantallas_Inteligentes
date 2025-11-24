@@ -1,0 +1,14 @@
+package com.tuusuario.pantallasinteligentes.data.api
+
+import com.tuusuario.pantallasinteligentes.data.model.MovieResponse
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Query
+
+interface TmdbService {
+    @GET("3/movie/popular")
+    suspend fun getPopular(@Query("api_key") apiKey: String, @Query("page") page: Int = 1): Response<MovieResponse>
+
+    @GET("3/movie/top_rated")
+    suspend fun getTopRated(@Query("api_key") apiKey: String, @Query("page") page: Int = 1): Response<MovieResponse>
+}

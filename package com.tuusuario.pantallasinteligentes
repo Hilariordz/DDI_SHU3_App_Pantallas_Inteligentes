@@ -1,0 +1,17 @@
+package com.tuusuario.pantallasinteligentes
+
+import android.os.Bundle
+import androidx.fragment.app.FragmentActivity
+import com.tuusuario.pantallasinteligentes.ui.BrowseFragment
+
+class MainActivity : FragmentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Simple layout container
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, BrowseFragment())
+                .commit()
+        }
+    }
+}

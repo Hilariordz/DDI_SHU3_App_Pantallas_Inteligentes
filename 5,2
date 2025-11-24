@@ -1,0 +1,47 @@
+package com.tuusuario.pantallasinteligentes.ui
+
+import android.os.Bundle
+import android.util.Log
+import androidx.leanback.app.BrowseSupportFragment
+import androidx.leanback.widget.*
+import androidx.lifecycle.lifecycleScope
+import com.tuusuario.pantallasinteligentes.data.api.RetrofitClient
+import com.tuusuario.pantallasinteligentes.data.model.Movie
+import kotlinx.coroutines.launch
+
+class BrowseFragment : BrowseSupportFragment() {
+
+    private val TAG = "BrowseFragment"
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        title = "Pantallas Inteligentes"
+        headersState = HEADERS_DISABLED
+        setupRows()
+    }
+
+    private fun setupRows() {
+        val rowsAdapter = ArrayObjectAdapter(ListRowPresenter())
+        adapter = rowsAdapter
+
+        // Usamos coroutine para llamar a la API
+        lifecycleScope.launch {
+            try {
+                val response = RetrofitClient.tmdbService.getPopular(BuildConfig.TMDB_API_KEY)
+                if (response.isSuccessful) {
+                    val movies = response.body()?.results ?: emptyList()
+                    val cardPresenter = CardPresenter()
+                    val listAdapter = ArrayObjectAdapter(cardPresenter)
+                    for (m in movies) listAdapter.add(m)
+                    val header = HeaderItem(0L, "Populares")
+                    val row = ListRow(header, listAdapter)
+                    rowsAdapter.add(row)
+                } else {
+                    Log.e(TAG, "Error API: ${response.code()} ${response.message()}")
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Exception: ${e.message}", e)
+            }
+        }
+    }
+}

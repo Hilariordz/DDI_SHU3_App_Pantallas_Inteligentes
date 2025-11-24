@@ -1,0 +1,13 @@
+package com.tuusuario.pantallasinteligentes.data.api
+
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+object RetrofitClient {
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("https://api.themoviedb.org/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    val tmdbService: TmdbService = retrofit.create(TmdbService::class.java)
+}

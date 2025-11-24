@@ -1,0 +1,15 @@
+def tmdbKey = ""
+if (rootProject.file('local.properties').exists()) {
+    def props = new Properties()
+    rootProject.file('local.properties').withInputStream { props.load(it) }
+    tmdbKey = props.getProperty('tmdb_api_key') ?: ""
+}
+
+android {
+    ...
+    defaultConfig {
+        ...
+        buildConfigField "String", "TMDB_API_KEY", "\"${tmdbKey}\""
+    }
+    ...
+}
