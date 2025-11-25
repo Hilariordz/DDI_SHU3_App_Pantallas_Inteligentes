@@ -17,7 +17,7 @@ class MainActivity : FragmentActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Stop the music service when the app is closed
         stopService(Intent(this, MusicService::class.java))
     }
 }
+

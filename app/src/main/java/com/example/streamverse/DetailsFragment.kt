@@ -21,7 +21,7 @@ class DetailsFragment : Fragment() {
     private val slideShowRunnable = object : Runnable {
         override fun run() {
             showNextImage()
-            handler.postDelayed(this, 60000) // 60 seconds
+            handler.postDelayed(this, 60000)
         }
     }
 
@@ -69,11 +69,11 @@ class DetailsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        handler.postDelayed(slideShowRunnable, 60000) // Start slideshow with new duration
+        handler.postDelayed(slideShowRunnable, 60000)
     }
 
     override fun onPause() {
         super.onPause()
-        handler.removeCallbacks(slideShowRunnable) // Stop slideshow
+        handler.removeCallbacks(slideShowRunnable)
     }
 }

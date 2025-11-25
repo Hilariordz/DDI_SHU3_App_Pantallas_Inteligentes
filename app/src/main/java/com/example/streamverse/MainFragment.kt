@@ -32,7 +32,7 @@ class MainFragment : VerticalGridSupportFragment() {
 
     private fun setupGrid() {
         val gridPresenter = VerticalGridPresenter()
-        gridPresenter.numberOfColumns = 5 // Adjust number of columns as needed
+        gridPresenter.numberOfColumns = 5
         setGridPresenter(gridPresenter)
 
         val cardPresenter = CardPresenter()
