@@ -1,8 +1,8 @@
 # StreamVerse - Marco de Arte Digital para TV
 
 <p align="center">
-  <img alt="Pantalla Principal" src="./screenshots/main_screen.png" width="49%">
-  <img alt="Pantalla de Detalles" src="./screenshots/detail_screen.png" width="49%">
+  <img alt="Pantalla Principal" src="app/screenshots/main_screen.png" width="49%">
+  <img alt="Pantalla de Detalles" src="app/screenshots/detail_screen.png" width="49%">
 </p>
 
 ## 📄 Sobre el Proyecto
