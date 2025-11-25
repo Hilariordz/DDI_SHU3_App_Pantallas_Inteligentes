@@ -1,15 +1,45 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Created by Studio
+
+### Android ###
+# Built application files
+*.apk
+*.aab
+*.ap_
+*.aex
+*.keystore
+*.aexp
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+build/
+
+# Gradle files
+.gradle/
 local.properties
+
+# Proguard files
+proguard-rules.pro
+
+# Log files
+*.log
+
+# Android Studio Navigation editor files
+nav_graphs/
+
+# Android Studio profiler files
+*.hprof
+
+### IntelliJ ###
+.idea/
+*.iml
+
+# Keystore files
+*.jks
+*.keystore

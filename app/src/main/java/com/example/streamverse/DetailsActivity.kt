@@ -3,23 +3,21 @@ package com.example.streamverse
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 
-/**
- * Details activity class that loads [VideoDetailsFragment] class.
- */
 class DetailsActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_details)
         if (savedInstanceState == null) {
+            val fragment = DetailsFragment()
+            fragment.arguments = intent.extras
             supportFragmentManager.beginTransaction()
-                .replace(R.id.details_fragment, VideoDetailsFragment())
-                .commitNow()
+                .replace(android.R.id.content, fragment)
+                .commit()
         }
     }
 
     companion object {
-        const val SHARED_ELEMENT_NAME = "hero"
-        const val MOVIE = "Movie"
+        const val ARTWORK_LIST = "ArtworkList"
+        const val START_POSITION = "StartPosition"
     }
 }

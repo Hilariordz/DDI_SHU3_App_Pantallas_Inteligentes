@@ -1,4 +1,31 @@
 <resources>
+    <!-- Tema principal de la aplicación para TV -->
+    <style name="Theme.StreamVerse" parent="Theme.Leanback">
+        <!-- Color de fondo principal de la app -->
+        <item name="android:colorPrimary">@color/brand_background</item>
+        <item name="android:windowBackground">@color/brand_background</item>
+        <item name="android:colorBackground">@color/brand_background</item>
 
-    <style name="Theme.StreamVerse" parent="@style/Theme.Leanback" />
+        <!-- Configuración de la cabecera del BrowseFragment -->
+        <item name="browseHeadersStateList">@drawable/header_state_list</item>
+        <item name="headerStyle">@style/CustomHeaderStyle</item>
+
+        <!-- Configuración de las tarjetas (previews de películas) -->
+        <item name="imageCardViewStyle">@style/CustomImageCardViewStyle</item>
+    </style>
+
+    <!-- Estilo para la cabecera (Categorías como "Acción", "Comedia") -->
+    <style name="CustomHeaderStyle" parent="Widget.Leanback.Header">
+        <item name="android:textColor">@color/text_secondary_light</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <!-- Estilo para las tarjetas de contenido -->
+    <style name="CustomImageCardViewStyle" parent="Widget.Leanback.ImageCardView">
+        <!-- Color de la tarjeta cuando está seleccionada (foco) -->
+        <item name="cardBackground">@drawable/card_background_selector</item>
+        <item name="cardType">infoUnder</item>
+        <item name="infoAreaBackground">@color/card_background</item>
+    </style>
 </resources>

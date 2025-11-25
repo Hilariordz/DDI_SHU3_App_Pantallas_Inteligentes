@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado: cuando la categoría está seleccionada -->
+    <item android:state_selected="true" android:color="@color/brand_accent_primary" />
+    <!-- Estado por defecto -->
+    <item android:color="@color/text_secondary_light" />
+</selector>

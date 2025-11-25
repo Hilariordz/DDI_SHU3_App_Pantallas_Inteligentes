@@ -1,20 +1,23 @@
 package com.example.streamverse
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 
-/**
- * Loads [MainFragment].
- */
 class MainActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main_browse_fragment, MainFragment())
-                .commitNow()
+            supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, MainFragment())
+                .commit()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Stop the music service when the app is closed
+        stopService(Intent(this, MusicService::class.java))
     }
 }

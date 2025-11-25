@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LeanbackTheme">
+        <attr name="browseHeadersStateList" format="reference" />
+        <attr name="headerStyle" format="reference" />
+    </declare-styleable>
+</resources>
